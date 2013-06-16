@@ -6,14 +6,16 @@ import socket
 class Server(object):
 	def __init__(self, argv):
 		try:
-			opts, args = getopt.getopt(argv, "u:")
+			opts, args = getopt.getopt(argv, "hu:")
 		except getopt.GetOptError:
 			help()
 
 		users = []
 		names = []
 		for opt, arg in opts:
-			if opt == "-u":
+			if opt == "-h":
+				help()
+			elif opt == "-u":
 				names.append(arg)
 				users.append(User(arg))
 
@@ -130,7 +132,11 @@ class Tally(object):
 		return allVoted
 
 def help():
-	print 'Help goes here...';
+	print 'Usage:'
+	print '\tpython server.py [-u user1] [-u user2]'
+	print ''
+	print 'Arguments:'
+	print '\t-u\tAn arbitrary amount of users that you want to add to the brew round'
 	sys.exit(1)
 
 if __name__ == '__main__':
