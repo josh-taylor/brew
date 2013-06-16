@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys, getopt
+import sys, getopt, json
 from lib import notifications
 import socket
 
@@ -34,7 +34,7 @@ def main(argv):
 
 	s = socket.socket()
 	s.connect((host, port))
-	s.send(command + '|' + '#'.join(arguments))
+	s.send(json.dumps({'command': command, 'args': arguments}))
 	message = s.recv(1024)
 	notifications.notify("Brew time!", message)
 	s.close()

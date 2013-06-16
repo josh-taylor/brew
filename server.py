@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys, getopt
+import sys, getopt, json
 import socket
 
 class Server(object):
@@ -38,9 +38,9 @@ class Server(object):
 			self.handle_conn()
 
 	def handle_conn(self):
-		recv = self.c.recv(1024)
-		cmd, arg = recv.split('|')
-		args = arg.split('#')
+		recv = json.loads(self.c.recv(1024))
+		cmd = recv['command']
+		args = recv['args']
 
 		if cmd == 'add':
 			self.tally.add_to(args[0])
