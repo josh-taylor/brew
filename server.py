@@ -1,12 +1,27 @@
 #!/usr/bin/python
 
+import sys, getopt
 import socket
 
 class Server(object):
-	def __init__(self):
+	def __init__(self, argv):
+		try:
+			opts, args = getopt.getopt(argv, "u:")
+		except getopt.GetOptError:
+			help()
+
+		users = []
+		names = []
+		for opt, arg in opts:
+			if opt == "-u":
+				names.append(arg)
+				users.append(User(arg))
+
 		self.s = socket.socket()
-		self.tally = Tally([User('Josh'), User('Steve'), User('Andy')])
+		self.tally = Tally(users)
 		self.c = None
+
+		print 'Created users:', ', '.join(names)
 
 	def run(self):
 		self.s = socket.socket()
@@ -114,6 +129,10 @@ class Tally(object):
 				allVoted = False
 		return allVoted
 
+def help():
+	print 'Help goes here...';
+	sys.exit(1)
+
 if __name__ == '__main__':
-	a = Server()
+	a = Server(sys.argv[1:])
 	a.run()
