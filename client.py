@@ -40,7 +40,15 @@ def main(argv):
 	s.close()
 
 def help():
-	print 'Help goes here...';
+	print 'Usage:'
+	print '\tpython client.py [-h] [-n hostname] [-p port] -c command -a arg1'
+	print ''
+	print 'Arguments:'
+	print '\t-h\tDisplays this screen'
+	print '\t-n\tSets the hostname to connect to'
+	print '\t-p\tSets the port to connect to'
+	print '\t-c\tThe command to use, can be: \'add\', \'vote\' or \'reset\''
+	print '\t-a\tAn arbitrary amount of arguments (usually just 1 required) used for the command given'
 	sys.exit(1)
 
 if __name__ == '__main__':
