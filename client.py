@@ -10,7 +10,7 @@ def main(argv):
 
 	try:
 		opts, args = getopt.getopt(argv, "hc:a:n:p:")
-	except getopt.GetOptError:
+	except getopt.GetoptError:
 		help()
 
 	host = None

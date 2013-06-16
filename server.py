@@ -7,7 +7,7 @@ class Server(object):
 	def __init__(self, argv):
 		try:
 			opts, args = getopt.getopt(argv, "hu:")
-		except getopt.GetOptError:
+		except getopt.GetoptError:
 			help()
 
 		users = []
