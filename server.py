@@ -5,7 +5,7 @@ import socket
 class Server(object):
 	def __init__(self):
 		self.s = socket.socket()
-		self.tally = Tally()
+		self.tally = Tally([User('Josh'), User('Steve'), User('Andy')])
 		self.c = None
 
 	def run(self):
@@ -73,8 +73,8 @@ class User(object):
 
 """Tally object for storing a list of users and handling tally operations"""
 class Tally(object):
-	def __init__(self):
-		self.users = [User('Josh'), User('Steve'), User('Andy')]
+	def __init__(self, users):
+		self.users = users
 
 	def has_user(self, person):
 		for user in self.users:
@@ -98,10 +98,10 @@ class Tally(object):
 			return False
 		return self.get_user(person).tally
 
-	def set_voted(self, person):
+	def set_voted(self, person, voted=True):
 		if not self.has_user(person):
 			return False
-		self.get_user(person).voted = True
+		self.get_user(person).voted = voted
 
 	def reset_votes(self):
 		for user in self.users:
