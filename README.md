@@ -4,7 +4,7 @@ Just a "fun" app for managing who's turn it is to make the brew.
 
 ### Useage
 
-To use server run:
+To use the server run from a terminal:
 
 ```shell
 python server.py
