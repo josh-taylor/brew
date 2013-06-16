@@ -2,7 +2,7 @@
 
 Just a "fun" app for managing who's turn it is to make the brew.
 
-## Useage
+### Useage
 
 To use server run:
 
@@ -18,7 +18,7 @@ python client.py -c add -a Josh
 python client.py -c vote -a Josh
 ```
 
-# Tests
+### Tests
 
 Unit tests can be ran by running the `tests.py` file
 
@@ -26,6 +26,6 @@ Unit tests can be ran by running the `tests.py` file
 python tests.py
 ```
 
-## License
+### License
 
 See the COPYING file
