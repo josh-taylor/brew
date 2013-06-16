@@ -18,6 +18,14 @@ python client.py -c add -a Josh
 python client.py -c vote -a Josh
 ```
 
+# Tests
+
+Unit tests can be ran by running the `tests.py` file
+
+```shell
+python tests.py
+```
+
 ## License
 
 See the COPYING file
