@@ -1,6 +1,6 @@
 # Brew Manager
 
-Just a sample "fun" app for managing who's turn it is to make the brew.
+Just a "fun" app for managing who's turn it is to make the brew.
 
 ## Useage
 
