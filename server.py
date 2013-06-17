@@ -44,15 +44,21 @@ class Server(object):
 
 		if cmd == 'add':
 			self.tally.add_to(args[0])
-			self.c.send(args[0] + ' is now on ' + str(self.tally.get_brews(args[0])) + ' brews')
+			msg = args[0] + ' is now on ' + str(self.tally.get_brews(args[0])) + ' brews'
+			self.c.send(msg)
+			print 'DEBUG:', msg
 		elif cmd == 'vote':
 			self.tally.set_voted(args[0])
 
 			if self.tally.all_voted():
-				self.c.send('Everyone\'s now ready for a brew!');
+				msg = 'Everyone\'s now ready for a brew!'
+				print 'DEBUG:', msg
+				self.c.send(msg);
 				self.tally.reset_votes()
 			else:
-				self.c.send('Thanks for your vote!');
+				msg = 'Thanks for your vote!'
+				print 'DEBUG:', msg
+				self.c.send(msg);
 		elif cmd == 'reset':
 			self.tally.reset_votes()
 
